@@ -1,0 +1,20 @@
+.score {
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  font-size: 2em;
+  font-family: monospace;
+}
+
+.score .runs {
+  flex: 2;
+  text-align: center;
+}
+
+.score .wickets {
+  flex: 1;
+}
+
+.overs {
+  text-align: right;
+}
