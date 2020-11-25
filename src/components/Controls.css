@@ -1,7 +1,10 @@
 .controls {
   border-top: 3px solid black;
 }
-
+.controls button:active {
+  background-color: gray;
+  color: white;
+}
 .controls .add-btn {
   border: none;
   border-radius: 50%;
@@ -14,7 +17,7 @@
 
 .controls .dot {
   margin-top: 10px;
-  transform: translateX(160%);
+  transform: translateX(161%);
 }
 
 .controls .add-runs {
@@ -26,8 +29,11 @@
   margin: 15px;
 }
 
-.controls .wicket-btn {
-  transform: translateX(70%);
+.controls .other {
+  display: flex;
+  justify-content: space-evenly;
+}
+.controls .other button {
   font-size: 20px;
   padding: 15px;
   border: none;
