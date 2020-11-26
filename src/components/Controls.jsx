@@ -6,6 +6,7 @@ import "./Controls.css";
 
 const Controls = () => {
   const {
+    wickets,
     increaseRuns,
     increaseWickets,
     increaseOver,
@@ -43,6 +44,7 @@ const Controls = () => {
             className="wicket-btn"
             onClick={increaseWickets}
             style={iconButton}
+            disabled={wickets >= 10}
           >
             <Wicket />
             WICKET!
