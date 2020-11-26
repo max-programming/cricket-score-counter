@@ -1,18 +1,21 @@
 import { useContext } from "react";
 import { ScoreContext } from "../context/ScoreContext";
+import { ReactComponent as Wicket } from "../img/wicket.svg";
+import { ReactComponent as Ball } from "../img/cricket-ball.svg";
 import "./Controls.css";
 
 const Controls = () => {
-  const { increaseRuns, increaseWickets, resetScore } = useContext(
-    ScoreContext
-  );
-
-  const wicketImgURL =
-    "data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGRhdGEtbmFtZT0iTGF5ZXIgMSI+PHBhdGggZD0ibTM4OSAyNnYyMGgtMjd2MTFoLTY4di0xMWgtMjN2LTIwaDIzdi0xMWg2OHYxMXoiIGZpbGw9IiM4N2FmOGMiLz48cGF0aCBkPSJtMjY2IDI2djIwaC0yN3YxMWgtNjh2LTExaC0yM3YtMjBoMjN2LTExaDY4djExeiIgZmlsbD0iIzg3YWY4YyIvPjxnIGZpbGw9IiM5YWM1YTEiPjxwYXRoIGQ9Im0zNjkgNTFoNDR2NDQ2aC00NHoiLz48cGF0aCBkPSJtMjQ1IDUxaDQ0djQ0NmgtNDR6Ii8+PHBhdGggZD0ibTEyMSA1MWg0NHY0NDZoLTQ0eiIvPjwvZz48cGF0aCBkPSJtMzY5LjUgMjA2Ljk3aDQ0djgwaC00NHoiIGZpbGw9IiNkYzZlODQiLz48cGF0aCBkPSJtMjQ1LjUgMjA2Ljk3aDQ0djgwaC00NHoiIGZpbGw9IiNkYzZlODQiLz48cGF0aCBkPSJtMTIxLjUgMjA2Ljk3aDQ0djgwaC00NHoiIGZpbGw9IiNkYzZlODQiLz48cGF0aCBkPSJtMTIxIDUxaDI0djQ0NmgtMjR6IiBmaWxsPSIjODBhODg0Ii8+PHBhdGggZD0ibTEyMS41IDIwNi45N2gyNHY4MGgtMjR6IiBmaWxsPSIjYmY1YTcyIi8+PHBhdGggZD0ibTk5LjEwNSAyNjguMzIyYTYgNiAwIDAgMSAtNi02di0xMTMuNDkyYTYgNiAwIDAgMSAxMiAwdjExMy40OTJhNiA2IDAgMCAxIC02IDZ6IiBmaWxsPSIjZDRlMWY0Ii8+PHBhdGggZD0ibTk4LjUgMTMyLjcwOGE2IDYgMCAwIDEgLTYtNnYtNDAuNjE0YTYgNiAwIDAgMSAxMiAwdjQwLjYxNGE2IDYgMCAwIDEgLTYgNnoiIGZpbGw9IiNkNGUxZjQiLz48cGF0aCBkPSJtOTguNSA2OS43MDhhNiA2IDAgMCAxIC02LTZ2LTUuNjE0YTYgNiAwIDEgMSAxMiAwdjUuNjE0YTYgNiAwIDAgMSAtNiA2eiIgZmlsbD0iI2Q0ZTFmNCIvPjwvc3ZnPg==";
+  const {
+    increaseRuns,
+    increaseWickets,
+    increaseOver,
+    resetScore,
+  } = useContext(ScoreContext);
+  const iconButton = { display: "flex", justifyContent: "center" };
   return (
     <div className="controls">
-      <button className="add-btn dot" onClick={increaseRuns}>
-        0
+      <button className="add-btn dot" onClick={increaseOver}>
+        <Ball />
       </button>
       <div className="add-runs">
         <button onClick={increaseRuns} className="add-btn one">
@@ -36,14 +39,30 @@ const Controls = () => {
       </div>
       <div className="other">
         <div className="add-wicket">
-          <button className="wicket-btn" onClick={increaseWickets}>
-            <img src={wicketImgURL} width="20" height="20" alt="wickets" />
-            &nbsp; WICKET!
+          <button
+            className="wicket-btn"
+            onClick={increaseWickets}
+            style={iconButton}
+          >
+            <Wicket />
+            WICKET!
           </button>
         </div>
         <div className="reset">
-          <button className="reset-btn" onClick={resetScore}>
-            RESET
+          <button className="reset-btn" onClick={resetScore} style={iconButton}>
+            <svg
+              style={{ width: "1.25em", height: "1.25em" }}
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                clipRule="evenodd"
+              />
+            </svg>
+            &nbsp; RESET
           </button>
         </div>
       </div>
