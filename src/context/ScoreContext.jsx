@@ -26,8 +26,10 @@ export const ScoreProvider = ({ children }) => {
     increaseOver();
   };
   const increaseWickets = () => {
-    setWickets(wickets < 10 ? wickets + 1 : wickets);
-    increaseOver();
+    if (wickets < 10) {
+      setWickets(wickets + 1);
+      increaseOver();
+    } else setWickets(wickets);
   };
   const resetScore = () => {
     setRuns(0);
