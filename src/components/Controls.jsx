@@ -15,26 +15,54 @@ const Controls = () => {
   const iconButton = { display: "flex", justifyContent: "center" };
   return (
     <div className="controls">
-      <button className="add-btn dot" onClick={increaseOver}>
+      <button
+        className="add-btn dot"
+        onClick={increaseOver}
+        disabled={wickets === 10}
+      >
         <Ball />
       </button>
       <div className="add-runs">
-        <button onClick={increaseRuns} className="add-btn one">
+        <button
+          onClick={increaseRuns}
+          className="add-btn one"
+          disabled={wickets === 10}
+        >
           1
         </button>
-        <button onClick={increaseRuns} className="add-btn two">
+        <button
+          onClick={increaseRuns}
+          className="add-btn two"
+          disabled={wickets === 10}
+        >
           2
         </button>
-        <button onClick={increaseRuns} className="add-btn three">
+        <button
+          onClick={increaseRuns}
+          className="add-btn three"
+          disabled={wickets === 10}
+        >
           3
         </button>
-        <button onClick={increaseRuns} className="add-btn four">
+        <button
+          onClick={increaseRuns}
+          className="add-btn four"
+          disabled={wickets === 10}
+        >
           4
         </button>
-        <button onClick={increaseRuns} className="add-btn five">
+        <button
+          onClick={increaseRuns}
+          className="add-btn five"
+          disabled={wickets === 10}
+        >
           5
         </button>
-        <button onClick={increaseRuns} className="add-btn six">
+        <button
+          onClick={increaseRuns}
+          className="add-btn six"
+          disabled={wickets === 10}
+        >
           6
         </button>
       </div>
@@ -44,7 +72,7 @@ const Controls = () => {
             className="wicket-btn"
             onClick={increaseWickets}
             style={iconButton}
-            disabled={wickets >= 10}
+            disabled={wickets === 10}
           >
             <Wicket />
             WICKET!
