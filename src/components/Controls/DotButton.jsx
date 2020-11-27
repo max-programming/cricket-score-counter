@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ScoreContext } from "../../context/ScoreContext";
-import { ReactComponent as Ball } from "../../img/ball.svg";
+import { ReactComponent as Ball } from "../../img/cricket-ball.svg";
 
 const DotButton = () => {
   const { increaseOver, wickets } = useContext(ScoreContext);
