@@ -1,6 +1,9 @@
 .controls {
   border-top: 3px solid black;
 }
+.controls button {
+  transition: 0.3s;
+}
 .controls button:active {
   background-color: gray;
   color: white;
@@ -15,9 +18,16 @@
   outline: none;
 }
 
-.controls .dot {
+.controls .dot,
+.controls .undo {
   margin-top: 10px;
-  transform: translateX(161%);
+  display: flex;
+  justify-content: center;
+}
+
+.controls .add {
+  display: flex;
+  justify-content: center;
 }
 
 .controls .add-runs {
@@ -30,10 +40,12 @@
 }
 
 .controls .other {
+  margin-top: 10px;
   display: flex;
   justify-content: space-evenly;
 }
-.controls .other button {
+.controls .other button,
+.undo-btn {
   font-size: 20px;
   padding: 15px;
   border: none;

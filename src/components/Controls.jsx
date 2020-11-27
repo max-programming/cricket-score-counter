@@ -7,64 +7,70 @@ import "./Controls.css";
 const Controls = () => {
   const {
     wickets,
+    lastOperation,
     increaseRuns,
     increaseWickets,
     increaseOver,
     resetScore,
+    undoLastOperation,
   } = useContext(ScoreContext);
   const iconButton = { display: "flex", justifyContent: "center" };
   return (
     <div className="controls">
-      <button
-        className="add-btn dot"
-        onClick={increaseOver}
-        disabled={wickets === 10}
-      >
-        <Ball />
-      </button>
-      <div className="add-runs">
+      <div className="dot">
         <button
-          onClick={increaseRuns}
-          className="add-btn one"
+          className="add-btn dot-btn"
+          onClick={increaseOver}
           disabled={wickets === 10}
         >
-          1
+          <Ball />
         </button>
-        <button
-          onClick={increaseRuns}
-          className="add-btn two"
-          disabled={wickets === 10}
-        >
-          2
-        </button>
-        <button
-          onClick={increaseRuns}
-          className="add-btn three"
-          disabled={wickets === 10}
-        >
-          3
-        </button>
-        <button
-          onClick={increaseRuns}
-          className="add-btn four"
-          disabled={wickets === 10}
-        >
-          4
-        </button>
-        <button
-          onClick={increaseRuns}
-          className="add-btn five"
-          disabled={wickets === 10}
-        >
-          5
-        </button>
-        <button
-          onClick={increaseRuns}
-          className="add-btn six"
-          disabled={wickets === 10}
-        >
-          6
-        </button>
+      </div>
+      <div className="add">
+        <div className="add-runs">
+          <button
+            onClick={increaseRuns}
+            className="add-btn one"
+            disabled={wickets === 10}
+          >
+            1
+          </button>
+          <button
+            onClick={increaseRuns}
+            className="add-btn two"
+            disabled={wickets === 10}
+          >
+            2
+          </button>
+          <button
+            onClick={increaseRuns}
+            className="add-btn three"
+            disabled={wickets === 10}
+          >
+            3
+          </button>
+          <button
+            onClick={increaseRuns}
+            className="add-btn four"
+            disabled={wickets === 10}
+          >
+            4
+          </button>
+          <button
+            onClick={increaseRuns}
+            className="add-btn five"
+            disabled={wickets === 10}
+          >
+            5
+          </button>
+          <button
+            onClick={increaseRuns}
+            className="add-btn six"
+            disabled={wickets === 10}
+          >
+            6
+          </button>
+        </div>
       </div>
       <div className="other">
         <div className="add-wicket">
@@ -95,6 +101,25 @@ const Controls = () => {
             &nbsp; RESET
           </button>
         </div>
+      </div>
+      <div className="undo">
+        <button
+          className="undo-btn"
+          style={iconButton}
+          disabled={lastOperation === null}
+          onClick={undoLastOperation}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path d="M17.026 22.957c10.957-11.421-2.326-20.865-10.384-13.309l2.464 2.352h-9.106v-8.947l2.232 2.229c14.794-13.203 31.51 7.051 14.794 17.675z" />
+          </svg>
+          &nbsp; UNDO
+        </button>
       </div>
     </div>
   );
